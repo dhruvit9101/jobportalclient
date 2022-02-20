@@ -1,0 +1,24 @@
+<div class="col-sm-4" style="margin-bottom: 15px;;">
+    <div class="form-group">
+        <label for="email">Title:</label>
+        <input type="text" [(ngModel)]="opening.title" class="form-control" id="title">
+    </div>
+    <div class="form-group">
+        <label for="pwd">Ref. Number:</label>
+        <input type="text" [(ngModel)]="opening.refNumber" class="form-control" id="refNumber">
+    </div>
+    <div class="form-group">
+        <label for="pwd">Short Desscription:</label>
+        <textarea class="form-control" [(ngModel)]="opening.shortDesscription" rows="5"
+            id="shortDesscription"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="pwd">Location:</label>
+        <!-- <input type="text" [(ngModel)]="opening.location" class="form-control" id="location"> -->
+        <select [(ngModel)]="opening.location" class="form-control">
+            <option selected value="0">Select Location</option>
+            <option *ngFor="let location of locations" value="{{location.id}}">{{location.name}}</option>
+        </select>
+    </div>
+    <button type="submit" (click)="createJob()" class="btn btn-default">Submit</button>
+</div>

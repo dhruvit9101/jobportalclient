@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>Search Jobs at Dhruvit (#{{lstOpenings.length}})</h2>
+    <p><b>COVID-19 update :</b> The safety and well-being of our candidates, our people and their families continues to
+        be a top priority. Until travel restrictions change, interviews will continue to be conducted virtually. See how
+        we embrace change and drive innovative solutions, every day. </p>
+    <p><b>SORT BY :</b> <a href="#">MOST RECENT</a> | <a href="#">MOST RELEVANT</a></p>
+    <div class="row">
+        <form class="navbar-form navbar-left">
+            <div class="form-group">
+                <input type="text" [(ngModel)]="jobTitleSearchText" name="jobTitleSearchText" class="form-control"
+                    placeholder="Job title">
+            </div>
+            <div class="form-group">
+                <input type="text" [(ngModel)]="locationSearchText" name="locationSearchText" class="form-control"
+                    placeholder="Location">
+            </div>
+            <button type="button" (click)="search()" class="btn btn-default">Search</button>
+        </form>
+        <form class="navbar-form navbar-left">
+            <a style="vertical-align: -webkit-baseline-middle;cursor: pointer;" (click)="clearSearch()">Clear Search</a>
+        </form>
+    </div>
+    <div class="row">
+        <app-post-job (jobAdded)="addJob($event)"></app-post-job>
+    </div>
+    <div class="row">
+        <app-job-element *ngFor="let opening of lstOpenings" [opening]="opening"></app-job-element>
+    </div>
+</div>
